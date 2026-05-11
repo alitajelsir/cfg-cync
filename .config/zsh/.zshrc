@@ -1,5 +1,5 @@
 # Unless running interactively, don't do anything
-[[ $- == *i* ]] ||
+[[ $options[interactive] == on ]] ||
 	return
 
 # Split zshrc into multiple files in zshrc.d
