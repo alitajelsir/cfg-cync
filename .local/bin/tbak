@@ -22,9 +22,9 @@ fd . -u --owner=root $HOME $PREFIIX -X \
 echo "Creating backup in $dest..."
 
 local -a tar_opts=(
-	--use-compress-program='xz --threads=0 -0'
+	--use-compress-program='zstd --threads=0'
 	--warning='no-file-ignored'
-	--create --file=$dest/termux_$ver.bak.tar.xz
+	--create --file=$dest/termux_$ver.bak.tar.zst
 	--directory=$src
 	--exclude={.cache,'tmp/*','.suroot/.local/state'}
 	home usr
