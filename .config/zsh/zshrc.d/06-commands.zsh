@@ -23,7 +23,7 @@
 		mdls="yt-dlp --no-embed-metadata --no-embed-subs --no-embed-thumbnail \
 			-S vcodec:h264,acodec:aac,res:720 --merge-output-format mp4 -f 'bv+ba/best'"
 		sudo='sudo '
-		sul='sudo --shell=zsh su'
+		sul='sudo -P --no-create-hist --no-create-rc --shell=zsh su'
 	)
 
 	# Set aliases
