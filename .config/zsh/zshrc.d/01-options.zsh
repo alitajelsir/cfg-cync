@@ -54,5 +54,8 @@ autoload -Uz run-help
 # Create named directories
 hash -d zsh=$ZDOTDIR git=$GITDIR
 
+# Set functions path
+fpath=($PREFIX/share/zsh/site-functions $fpath)
+
 # Use emacs mode
 bindkey -e
