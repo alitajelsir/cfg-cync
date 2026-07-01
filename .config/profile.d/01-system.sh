@@ -11,9 +11,6 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 
-# Set zsh configuration directory
-ZDOTDIR=$HOME/.config/zsh
-
 # Fix ownership
 [[ $UID == 0 ]] ||
 	(fd . -u --owner=root $HOME $PREFIIX -X \
