@@ -12,11 +12,11 @@
 	)
 
 	# Clone plugins in parallel
-	znap clone $_plugins
+	znap clone "${_plugins[@]}"
 
 	# Source plugins one by one
 	local _plugin=
-	for _plugin in $_plugins; do
+	for _plugin in "${_plugins[@]}"; do
 		znap source $_plugin
 	done
 }

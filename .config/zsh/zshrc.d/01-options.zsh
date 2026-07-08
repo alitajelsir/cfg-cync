@@ -37,7 +37,7 @@
 	)
 
 	# Set options
-	setopt $_options
+	setopt "${_options[@]}"
 }
 
 

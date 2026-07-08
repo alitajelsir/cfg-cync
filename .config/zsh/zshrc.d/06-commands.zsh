@@ -23,7 +23,7 @@
 	)
 
 	# Set aliases
-	alias -- $_commands
+	alias -- "${_commands[@]}"
 }
 
 # Set global aliases
