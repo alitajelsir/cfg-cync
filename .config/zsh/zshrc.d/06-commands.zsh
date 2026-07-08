@@ -27,7 +27,7 @@
 	)
 
 	# Set aliases
-	alias -- $_commands
+	alias -- "${_commands[@]}"
 }
 
 [[ $UID == 0 ]] ||
