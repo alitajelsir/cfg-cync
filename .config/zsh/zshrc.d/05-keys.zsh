@@ -9,12 +9,12 @@ bindkey '^Xa' _expand_alias
 
 # Bind Alt+shift+s to prefix with sudo
 () {
-  bindkey '^[S' $1
-  zle -N $1
-  $1() {
-    [[ $BUFFER == [[:space:]]# ]] &&
-      zle .up-history
+	bindkey '^[S' $1
+	zle -N $1
+	$1() {
+	  [[ $BUFFER == [[:space:]]# ]] &&
+	    zle .up-history
 
-    LBUFFER=" sudo $LBUFFER"
-  }
+	  LBUFFER=" sudo $LBUFFER"
+	}
 } .sudo
