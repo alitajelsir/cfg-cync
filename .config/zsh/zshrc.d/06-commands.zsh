@@ -7,7 +7,6 @@
 		-='cd -'
 		aria2c="aria2c --dir $HOME/Downloads"
 		bh='col -bx | bat -pl help --theme=Monokai\ Extended'
-		cfg="git --git-dir $XDG_DATA_HOME/git/cfg-sync --work-tree $HOME"
 		cpi='cp -iv'
 		lsa='eza -abF --icons --group-directories-first'
 		fh='fd -u'
@@ -25,6 +24,9 @@
 	# Set aliases
 	alias -- "${_commands[@]}"
 }
+
+[[ "$UID" == 0 ]] ||
+	alias cfg="git --git-dir $XDG_DATA_HOME/git/cfg-sync --work-tree $HOME"
 
 # Set global aliases
 alias -g '$= '
