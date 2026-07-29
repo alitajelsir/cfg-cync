@@ -29,7 +29,7 @@ noremap <C-q> :quit
 
 
 " Other
-set dictionary+=/usr/share/dict/words
+set dictionary+=/usr/share/dict/american-english
 
 
 " Packages
