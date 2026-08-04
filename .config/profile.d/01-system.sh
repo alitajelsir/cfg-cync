@@ -3,7 +3,7 @@ export LC_COLLATE=C
 export LC_CTYPE=en_US.UTF-8
 
 # Append PATH
-export PATH=/data/adb/ap/bin:/data/adb/ksu/bin:$PATH:$HOME/.local/bin
+export PATH="$PATH:/data/adb/ap/bin:/data/adb/ksu/bin:$HOME/.local/bin"
 
 # Set XDG user directories
 export XDG_CACHE_HOME=$HOME/.cache
