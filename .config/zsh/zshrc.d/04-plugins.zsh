@@ -30,12 +30,8 @@ fast-theme -s | grep -Foqm1 elegance ||
 # Cache zcolor output
 znap eval zcolors zcolors
 
-# Define completion group order
-zstyle ':completion:*' group-order \
-	options aliases suffix-aliases functions reserved-words builtins commands \
-	remotes hosts recent-branches commits \
-	named-directories local-directories directories \
-	executable expansions all-expansions
+# Sort grid completion by rows
+zstyle ':completion:*' list-rows-first true
 
 # Keep prefix in expansion
 zstyle ':completion:*:expand:*' keep-prefix true
@@ -44,4 +40,6 @@ zstyle ':completion:*:expand:*' keep-prefix true
 zstyle ':completion:*:rsync:*' tag-order files
 
 # Set recent directories file
-zstyle ':chpwd:*' recent-dirs-file $XDG_CACHE_HOME/zsh/chpwd-recent-dirs
+[[ -d $XDG_STATE_HOME/zsh ]] ||
+	mkdir $XDG_STATE_HOME/zsh
+zstyle ':chpwd:*' recent-dirs-file $XDG_STATE_HOME/zsh/chpwd-recent-dirs
