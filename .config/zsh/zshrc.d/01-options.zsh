@@ -6,9 +6,6 @@
 		# Changing Directories
 		AUTO_CD
 
-		# Completion
-		GLOB_COMPLETE
-
 		# Expansion and Globbing
 		EXTENDED_GLOB
 		GLOB
