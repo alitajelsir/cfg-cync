@@ -8,7 +8,7 @@
 		aria2c="aria2c --dir $HOME/Downloads"
 		bh='col -bx | bat -pl help --theme=Monokai\ Extended'
 		cpi='cp -iv'
-		lsa='eza -abFx --icons --group-directories-first'
+		lsa='eza -abF -x --icons --group-directories-first'
 		fh='fd -u'
 		ffm='ffmpeg -hide_banner'
 		ffp='ffprobe -hide_banner'
