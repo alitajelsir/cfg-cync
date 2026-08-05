@@ -9,7 +9,7 @@
 		cget=termux-clipboard-get
 		cpi='cp -iv'
 		cset=termux-clipboard-set
-		lsa='eza -abF --group-directories-first --icons=auto'
+		lsa='eza -abF -x --group-directories-first --icons=auto'
 		fh='fd -uL --exclude=.suroot'
 		ffm='ffmpeg -hide_banner'
 		ffp='ffprobe -hide_banner'
