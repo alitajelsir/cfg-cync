@@ -1,5 +1,4 @@
 # Use znap to mange plugins
-
 # Set znap options
 # Disable znap asynchronous compilation
 zstyle ':znap:*' auto-compile no

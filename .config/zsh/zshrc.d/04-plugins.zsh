@@ -17,7 +17,7 @@
 	# Source plugins one by one
 	local _plugin=
 	for _plugin in "${_plugins[@]}"; do
-		
+
 		if [[ $_plugin != *zcolors* ]]; then
 			znap source $_plugin
 		else
