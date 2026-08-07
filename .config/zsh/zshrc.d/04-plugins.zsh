@@ -17,7 +17,13 @@
 	# Source plugins one by one
 	local _plugin=
 	for _plugin in "${_plugins[@]}"; do
-		znap source $_plugin
+		
+		if [[ $_plugin != *zcolors* ]]; then
+			znap source $_plugin
+		else
+			source <(~[marlonrichert/zcolors]/zcolors)
+		fi
+
 	done
 }
 
@@ -26,18 +32,6 @@
 # Set syntax highlighting theme
 fast-theme -s | grep -Foqm1 elegance ||
 	fast-theme -q XDG:elegance
-
-# Cache zcolor output
-znap eval zcolors zcolors
-
-# Sort grid completion by rows
-zstyle ':completion:*' list-rows-first true
-
-# Keep prefix in expansion
-zstyle ':completion:*:expand:*' keep-prefix true
-
-# Prioritize local files in rsync completion
-zstyle ':completion:*:rsync:*' tag-order files
 
 # Set recent directories file
 [[ -d $XDG_STATE_HOME/zsh ]] ||
