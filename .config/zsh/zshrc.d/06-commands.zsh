@@ -43,7 +43,7 @@ man() {
 
 # Upgrade all pip installed packages
 pup() {
-	local -a _outdated=($(pip list --user --outdated | sed '1,2d; s/ .*$//'))
+	local -a _outdated=($(pip list --user --outdated | sed '1,2d; s/ .*//'))
 	[[ -z $_outdated ]] ||
 		pip install --user --upgrade $_outdated
 }
