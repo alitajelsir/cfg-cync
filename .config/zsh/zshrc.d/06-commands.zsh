@@ -1,29 +1,32 @@
 # Configure aliases
-() {
+# List aliases
+local -a _commands=(
+	%= \$= ❯=
+	-='cd -'
+	aria2c="aria2c --dir $HOME/Downloads"
+	bh="col -bx | bat -pl help --theme='Monokai Extended'"
+	cpi='cp -iv'
+	lsa='eza -abF -x --icons --group-directories-first'
+	fh='fd -u'
+	ffm='ffmpeg -hide_banner'
+	ffp='ffprobe -hide_banner'
+	mdl=yt-dlp
+	mdla='yt-dlp -x -f ba/b'
+	mvi='mv -iv'
+	plg='cd "$(mktemp -d)"'
+	rmi='rm -Iv'
+	rsl='rsync -PW'
+	sudo='sudo '
+)
 
-	# List aliases
-	local -a _commands=(
-		%= \$= ❯=
-		-='cd -'
-		aria2c="aria2c --dir $HOME/Downloads"
-		bh='col -bx | bat -pl help --theme=Monokai\ Extended'
-		cpi='cp -iv'
-		lsa='eza -abF -x --icons --group-directories-first'
-		fh='fd -u'
-		ffm='ffmpeg -hide_banner'
-		ffp='ffprobe -hide_banner'
-		mdl=yt-dlp
-		mdla='yt-dlp -x -f ba/b'
-		mvi='mv -iv'
-		plg="cd $(mktemp -d)"
-		rmi='rm -Iv'
-		rsl='rsync -PW'
-		sudo='sudo '
-	)
+# Set aliases
+local _c=
+for _c in "${_commands[@]}"; do
+	alias -- "$_c"
+done
 
-	# Set aliases
-	alias -- "${_commands[@]}"
-}
+[[ $UID == 0 ]] ||
+	alias cfg="git --git-dir=$GITDIR/cfg-sync/ --work-tree=$HOME"
 
 # Set global aliases
 alias -g '$= '
@@ -31,13 +34,11 @@ alias -g '$= '
 
 # Set functions
 if [[ $UID != 0 ]]; then
-	cfg (){
-		git --git-dir="$GITDIR/cfg-sync/" --work-tree="$HOME" "$@"
-	}
-	
 	cfgcln() {
-		cfg fetch --depth=1
-		cfg reflog expire --expire-unreachable=now --all
-		cfg gc --aggressive --prune=all
+		local -a _cfgcmd=(--git-dir="$GITDIR/cfg-sync/" --work-tree="$HOME")
+
+		git "${_cfgcmd[@]}" fetch --depth=1
+		git "${_cfgcmd[@]}" reflog expire --expire-unreachable=now --all
+		git "${_cfgcmd[@]}" gc --aggressive --prune=all
 	}
 fi
