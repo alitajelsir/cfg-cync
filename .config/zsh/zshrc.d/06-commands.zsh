@@ -1,7 +1,7 @@
 # Configure aliases
 # List aliases
 local -a _commands=(
-	%= \$= ❯=
+	'%'='' '$'='' '❯'=''
 	-='cd -'
 	aria2c="aria2c --dir $HOME/Downloads"
 	bh="col -bx | bat -pl help --theme='Monokai Extended'"
@@ -35,10 +35,10 @@ alias -g '$= '
 # Set functions
 if [[ $UID != 0 ]]; then
 	cfgcln() {
-		local -a _cfgcmd=(--git-dir="$GITDIR/cfg-sync/" --work-tree="$HOME")
+		local -a _cfgargs=(--git-dir="$GITDIR/cfg-sync/" --work-tree="$HOME")
 
-		git "${_cfgcmd[@]}" fetch --depth=1
-		git "${_cfgcmd[@]}" reflog expire --expire-unreachable=now --all
-		git "${_cfgcmd[@]}" gc --aggressive --prune=all
+		git "${_cfgargs[@]}" fetch --depth=1
+		git "${_cfgargs[@]}" reflog expire --expire-unreachable=now --all
+		git "${_cfgargs[@]}" gc --aggressive --prune=all
 	}
 fi
