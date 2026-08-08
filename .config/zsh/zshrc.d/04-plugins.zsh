@@ -5,14 +5,12 @@
 if [[ ! $XDG_STATE_HOME/zsh/zplugins.zsh -nt $ZDOTDIR/.zplugins ]]; then
   antidote bundle <$ZDOTDIR/.zplugins >!$XDG_STATE_HOME/zsh/zplugins.zsh
 fi
-
 source $XDG_STATE_HOME/zsh/zplugins.zsh
 
 local _zcolors="$(antidote path marlonrichert/zcolors)"
 if [[ ! $XDG_STATE_HOME/zsh/zcolors.zsh -nt $_zcolors/zcolors ]]; then
 	$_zcolors/zcolors >!$XDG_STATE_HOME/zsh/zcolors.zsh
 fi
-
 source $XDG_STATE_HOME/zsh/zcolors.zsh
 
 # Configure plugins
