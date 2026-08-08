@@ -7,7 +7,7 @@
 
 # Install antidote
 	if [[ ! -r $_manger_local/antidote.zsh ]]; then
-		printf '# zsh cloning mattmc3/antidote\n'
+		printf '# zsh cloning mattmc3/antidote...\n'
 		git clone --quiet --depth 1 $_manger_remote $_manger_local
 	fi
 	source $_manger_local/antidote.zsh
