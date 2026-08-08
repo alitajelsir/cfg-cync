@@ -1,7 +1,7 @@
 # Configure aliases
 # List aliases
 local -a _commands=(
-	%= \$= ❯=
+	'%'='' '$'='' '❯'=''
 	-='cd -'
 	bh="col -bx | bat -pl help --theme='Monokai Extended'"
 	cget=termux-clipboard-get
