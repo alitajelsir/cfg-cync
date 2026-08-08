@@ -16,4 +16,3 @@ export ANTIDOTE_HOME=$XDG_DATA_HOME/zsh/plugins
 zstyle ':antidote:bundle' file $ZDOTDIR/.zplugins
 zstyle ':antidote:static' file $XDG_STATE_HOME/zsh/zplugins.zsh
 zstyle ':antidote:bundle' path-style short
-zstyle ':antidote:*' zcompile 'yes'
