@@ -2,10 +2,15 @@
 [[ -d $XDG_STATE_HOME/zsh ]] ||
 	mkdir -p $XDG_STATE_HOME/zsh
 
-if [[ ! $XDG_STATE_HOME/zsh/zplugins.zsh -nt $ZDOTDIR/.zplugins ]]; then
-  antidote bundle <$ZDOTDIR/.zplugins >!$XDG_STATE_HOME/zsh/zplugins.zsh
+local _bundle _snapshot _static
+	_plugins=$ZDOTDIR/.zplugins
+	_snapshot="$(antidote snapshot | head -1)"
+	_static=$XDG_STATE_HOME/zsh/zplugins.zsh
+
+if [[ ! $_static -nt $_snapshot || ! $_static -nt $_plugins ]]; then
+  antidote bundle <$_plugins >!$_static
 fi
-source $XDG_STATE_HOME/zsh/zplugins.zsh
+source $_static
 
 local _zcolors="$(antidote path marlonrichert/zcolors)"
 if [[ ! $XDG_STATE_HOME/zsh/zcolors.zsh -nt $_zcolors/zcolors ]]; then
