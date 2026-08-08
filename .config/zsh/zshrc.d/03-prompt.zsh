@@ -1,5 +1,5 @@
 # Use Powerlevel10k
-znap source romkatv/powerlevel10k
+#antidote bundle romkatv/powerlevel10k
 
 # Use instant prompt
 [[ ! -r $XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh ]] ||
