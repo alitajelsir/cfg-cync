@@ -42,8 +42,12 @@ man() {
 
 pup() {
 	local -a _outdated=($(pip list --user --outdated | sed '1,2d; s/ .*//'))
-	[[ -z $_outdated ]] ||
-		pip install --user --upgrade $_outdated
+	
+	if (( "${#_outdated[@]}" )); then
+		pip install --user --upgrade "${_outdated[@]}"
+	else
+		printf 'pip: All packages are up to date\n'
+	fi
 }
 
 if [[ $UID != 0 ]]; then
