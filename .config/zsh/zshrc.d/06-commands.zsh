@@ -28,6 +28,7 @@
 # Set global aliases
 alias -g '$= '
 
+
 # Set functions
 if [[ $UID != 0 ]]; then
 	cfg (){
