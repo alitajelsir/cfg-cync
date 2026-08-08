@@ -19,3 +19,4 @@ zstyle ':antidote:bundle' file $ZDOTDIR/.zplugins
 zstyle ':antidote:static' file $XDG_STATE_HOME/zsh/zplugins.zsh
 zstyle ':antidote:bundle' path-style short
 zstyle ':antidote:bundle:*' shallow true
+zstyle ':antidote:snapshot' max 3
