@@ -30,8 +30,17 @@
 	alias -- "${_commands[@]}"
 }
 
-[[ $UID == 0 ]] ||
-	alias cfg="git --git-dir $GITDIR/cfg-sync/ --work-tree $HOME"
+if [[ $UID != 0 ]]; then
+	cfg (){
+		git --git-dir="$GITDIR/cfg-sync/" --work-tree="$HOME" "$@"
+	}
+	
+	cfgcln() {
+		cfg fetch --depth=1
+		cfg reflog expire --expire-unreachable=now --all
+		cfg gc --aggressive --prune=all
+	}
+fi
 
 
 # Configure functions
