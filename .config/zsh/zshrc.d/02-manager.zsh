@@ -1,16 +1,18 @@
-# Use znap to mange plugins
-# Set znap options
-# Disable znap asynchronous compilation
-zstyle ':znap:*' auto-compile no
-
-# Set znap local and remote sources
+# Use antidote to mange plugins
+# Set manger local and remote location
 () {
 	local _manger_local _manger_remote
-		_manger_local=$XDG_DATA_HOME/zsh/plugins/zsh-snap
-		_manger_remote=https://github.com/marlonrichert/zsh-snap.git
+		_manger_local=$XDG_DATA_HOME/zsh/plugins/mattmc3/antidote
+		_manger_remote=https://github.com/mattmc3/antidote.git
 
-# Install znap
-	[[ -r $_manger_local/znap.zsh ]] ||
+# Install antidote
+	[[ -r $_manger_local/antidote.zsh ]] ||
 		git clone --depth 1 $_manger_remote $_manger_local
-	source $_manger_local/znap.zsh
+	source $_manger_local/antidote.zsh
 }
+
+# Configure antidote
+export ANTIDOTE_HOME=$XDG_DATA_HOME/zsh/plugins
+zstyle ':antidote:bundle' file $ZDOTDIR/.zplugins
+zstyle ':antidote:static' file $XDG_STATE_HOME/zsh/zplugins.zsh
+zstyle ':antidote:bundle' path-style short
