@@ -2,33 +2,33 @@
 # List options
 local -a _options=(
 	# Changing Directories
-	AUTO_CD
+	auto_cd
 
 	# Expansion and Globbing
-	EXTENDED_GLOB
-	GLOB
-	GLOB_DOTS
-	GLOB_STAR_SHORT
-	NUMERIC_GLOB_SORT
+	extended_glob
+	glob
+	glob_dots
+	glob_star_short
+	numeric_glob_sort
 
 	# History
-	HIST_FCNTL_LOCK
-	HIST_IGNORE_ALL_DUPS
-	HIST_IGNORE_SPACE
-	HIST_NO_FUNCTIONS
-	HIST_NO_STORE
-	HIST_REDUCE_BLANKS
-	HIST_VERIFY
-	SHARE_HISTORY
+	hist_fcntl_lock
+	hist_ignore_all_dups
+	hist_ignore_space
+	hist_no_functions
+	hist_no_store
+	hist_reduce_blanks
+	hist_verify
+	share_history
 
 	# Input and Output
-	CORRECT
-	INTERACTIVE_COMMENTS
-	NO_FLOW_CONTROL
-	NO_CLOBBER
+	correct
+	interactive_comments
+	no_flow_control
+	no_clobber
 
 	# Shell Emulation
-	APPEND_CREATE
+	append_create
 )
 
 # Set options
