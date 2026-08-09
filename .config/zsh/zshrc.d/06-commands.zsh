@@ -22,7 +22,7 @@ local -a _commands=(
 alias -- "${_commands[@]}"
 
 [[ $UID == 0 ]] ||
-	alias cfg="git --git-dir=$GITDIR/cfg-sync/ --work-tree=$HOME"
+	alias cfg="git --git-dir=$GITDIR/cfg-sync --work-tree=$HOME"
 
 # Set global aliases
 alias -g "\$= "
@@ -31,7 +31,7 @@ alias -g "\$= "
 # Set functions
 if [[ $UID != 0 ]]; then
 	cfgcln() {
-		local -a _cfgargs=(--git-dir="$GITDIR/cfg-sync/" --work-tree="$HOME")
+		local -a _cfgargs=(--git-dir="$GITDIR/cfg-sync" --work-tree="$HOME")
 
 		git "${_cfgargs[@]}" fetch --depth=1
 		git "${_cfgargs[@]}" reflog expire --expire-unreachable=now --all
