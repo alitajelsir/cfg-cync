@@ -35,7 +35,7 @@ if [[ $UID != 0 ]]; then
 
 		git "${_cfgargs[@]}" fetch --depth=1
 		git "${_cfgargs[@]}" reflog expire --expire-unreachable=now --all
-		git "${_cfgargs[@]}" gc --aggressive --prune=all
+		git "${_cfgargs[@]}" gc --prune=now --aggressive
 	}
 fi
 
