@@ -21,7 +21,7 @@ fd . -u --owner=root $HOME $PREFIX -X \
 # Start backup
 echo "Creating backup in $_dest..."
 
-setopt local_options extended_glob
+setopt local_options extended_glob glob_dots
 
 local -a _tar_opts=(
 	--use-compress-program='zstd --threads=0'
@@ -36,5 +36,5 @@ local -a _targets=(
 	$_src/usr
 )
 
-tar "${_tar_opts[@]}" "${(@)_targets#"$_src/"}"
+tar "${_tar_opts[@]}" "${(@)_targets#$_src/}"
 exit
