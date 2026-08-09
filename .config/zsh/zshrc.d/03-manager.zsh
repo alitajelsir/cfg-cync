@@ -1,9 +1,9 @@
 # Use antidote to mange plugins
 local _manger_local _manger_remote
 	_manger_local=$XDG_DATA_HOME/zsh/plugins/mattmc3/antidote
-	_manger_remote=https://github.com/mattmc3/antidote.git
+	_manger_remote='https://github.com/mattmc3/antidote.git'
 
-if [[ ! -r $_manger_local/antidote.zsh ]]; then
+if [[ ! -f $_manger_local/antidote.zsh ]]; then
 	printf '# zsh cloning mattmc3/antidote...\n'
 	git clone --quiet --depth 1 $_manger_remote $_manger_local
 fi

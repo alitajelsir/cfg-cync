@@ -1,41 +1,38 @@
 # Configure options
-() {
+# List options
+local -a _options=(
+	# Changing Directories
+	AUTO_CD
 
-	# List options
-	local -a _options=(
-		# Changing Directories
-		AUTO_CD
+	# Expansion and Globbing
+	EXTENDED_GLOB
+	GLOB
+	GLOB_DOTS
+	GLOB_STAR_SHORT
+	NUMERIC_GLOB_SORT
 
-		# Expansion and Globbing
-		EXTENDED_GLOB
-		GLOB
-		GLOB_DOTS
-		GLOB_STAR_SHORT
-		NUMERIC_GLOB_SORT
+	# History
+	HIST_FCNTL_LOCK
+	HIST_IGNORE_ALL_DUPS
+	HIST_IGNORE_SPACE
+	HIST_NO_FUNCTIONS
+	HIST_NO_STORE
+	HIST_REDUCE_BLANKS
+	HIST_VERIFY
+	SHARE_HISTORY
 
-		# History
-		HIST_FCNTL_LOCK
-		HIST_IGNORE_ALL_DUPS
-		HIST_IGNORE_SPACE
-		HIST_NO_FUNCTIONS
-		HIST_NO_STORE
-		HIST_REDUCE_BLANKS
-		HIST_VERIFY
-		SHARE_HISTORY
+	# Input and Output
+	CORRECT
+	INTERACTIVE_COMMENTS
+	NO_FLOW_CONTROL
+	NO_CLOBBER
 
-		# Input and Output
-		CORRECT
-		INTERACTIVE_COMMENTS
-		NO_FLOW_CONTROL
-		NO_CLOBBER
+	# Shell Emulation
+	APPEND_CREATE
+)
 
-		# Shell Emulation
-		APPEND_CREATE
-	)
-
-	# Set options
-	setopt "${_options[@]}"
-}
+# Set options
+setopt "${_options[@]}"
 
 # Sort grid completion by rows
 zstyle ':completion:*' list-rows-first true
