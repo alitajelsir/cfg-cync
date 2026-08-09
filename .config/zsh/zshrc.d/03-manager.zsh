@@ -3,7 +3,7 @@
 () {
 	local _manger_local _manger_remote
 		_manger_local=$XDG_DATA_HOME/zsh/plugins/mattmc3/antidote
-		_manger_remote=https://github.com/mattmc3/antidote.git
+		_manger_remote='https://github.com/mattmc3/antidote.git'
 
 # Install antidote
 	if [[ ! -r $_manger_local/antidote.zsh ]]; then
