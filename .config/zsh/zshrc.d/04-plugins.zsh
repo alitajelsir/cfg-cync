@@ -2,12 +2,13 @@
 [[ -d $XDG_STATE_HOME/zsh ]] ||
 	mkdir -p $XDG_STATE_HOME/zsh
 
-local _bundle _snapshot _static
+local _plugins _static
+local -a _snapshot
 	_plugins=$ZDOTDIR/.zplugins
-	_snapshot="$(antidote snapshot | head -1)"
 	_static=$XDG_STATE_HOME/zsh/zplugins.zsh
+	_snapshot=("${(@f)$(antidote snapshot)}")
 
-if [[ ! $_static -nt $_snapshot || ! $_static -nt $_plugins ]]; then
+if [[ ! $_static -nt $_plugins || ! $_static -nt "${_snapshot[1]:-$_plugins}" ]]; then
   antidote bundle <$_plugins >!$_static
 fi
 source $_static
