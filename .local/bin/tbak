@@ -6,29 +6,35 @@ if [[ $UID == 0 ]]; then
 fi
 
 # Set backup directories
-local dest src ver
-	dest=/sdcard/Android/bak/Termux
-	src=/data/data/com.termux/files
-	ver=$(date +%Y%m%d)
+local _dest _src _ver
+	_dest=/sdcard/Android/bak/Termux
+	_src=/data/data/com.termux/files
+	_ver=$(date +%Y%m%d)
 
-[[ -d $dest ]] ||
-	mkdir -p $dest
+[[ -d $_dest ]] ||
+	mkdir -p $_dest
 
 # Fix ownership
 fd . -u --owner=root $HOME $PREFIX -X \
 		sudo chown -R $USERNAME:$USERNAME
 
 # Start backup
-echo "Creating backup in $dest..."
+echo "Creating backup in $_dest..."
 
-local -a tar_opts=(
+setopt local_options extended_glob
+
+local -a _tar_opts=(
 	--use-compress-program='zstd --threads=0'
-	--warning='no-file-ignored'
-	--create --file=$dest/termux_$ver.bak.tar.zst
-	--directory=$src
+	--create --file=$_dest/termux_${_ver}.bak.tar.zst
+	--directory=$_src
 	--exclude={.cache,'tmp/*','.local/state'}
-	home usr
 )
-tar $tar_opts
 
+local -a _targets=(
+	$_src/home/^.suroot
+	$_src/home/.suroot/.config/zsh/.zshrc(N)
+	$_src/usr
+)
+
+tar "${_tar_opts[@]}" "${(@)_targets#"$_src/"}"
 exit
