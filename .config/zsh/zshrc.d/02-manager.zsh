@@ -1,17 +1,13 @@
 # Use antidote to mange plugins
-# Set manger local and remote location
-() {
-	local _manger_local _manger_remote
-		_manger_local=$XDG_DATA_HOME/zsh/plugins/mattmc3/antidote
-		_manger_remote=https://github.com/mattmc3/antidote.git
+local _manger_local _manger_remote
+	_manger_local=$XDG_DATA_HOME/zsh/plugins/mattmc3/antidote
+	_manger_remote=https://github.com/mattmc3/antidote.git
 
-# Install antidote
-	if [[ ! -r $_manger_local/antidote.zsh ]]; then
-		printf '# zsh cloning mattmc3/antidote...\n'
-		git clone --quiet --depth 1 $_manger_remote $_manger_local
-	fi
-	source $_manger_local/antidote.zsh
-}
+if [[ ! -r $_manger_local/antidote.zsh ]]; then
+	printf '# zsh cloning mattmc3/antidote...\n'
+	git clone --quiet --depth 1 $_manger_remote $_manger_local
+fi
+source $_manger_local/antidote.zsh
 
 # Configure antidote
 export ANTIDOTE_HOME=$XDG_DATA_HOME/zsh/plugins
