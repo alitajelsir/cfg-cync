@@ -1,7 +1,7 @@
 romkatv/powerlevel10k
 zdharma-continuum/fast-syntax-highlighting
-marlonrichert/zcolors kind:clone
+marlonrichert/zcolors kind:path
 zsh-users/zsh-autosuggestions
-zsh-users/zsh-completions
+zsh-users/zsh-completions kind:fpath path:src
 marlonrichert/zsh-autocomplete
 marlonrichert/zsh-edit
