@@ -13,9 +13,8 @@ if [[ ! $_static -nt $_plugins || ! $_static -nt "${_snapshot[1]:-$_plugins}" ]]
 fi
 source $_static
 
-local _zcolors="$(antidote path marlonrichert/zcolors)"
-if [[ ! $XDG_STATE_HOME/zsh/zcolors.zsh -nt $_zcolors/zcolors ]]; then
-	$_zcolors/zcolors >!$XDG_STATE_HOME/zsh/zcolors.zsh
+if [[ ! $XDG_STATE_HOME/zsh/zcolors.zsh -nt "$(which zcolors)" ]]; then
+	zcolors >!$XDG_STATE_HOME/zsh/zcolors.zsh
 fi
 source $XDG_STATE_HOME/zsh/zcolors.zsh
 
