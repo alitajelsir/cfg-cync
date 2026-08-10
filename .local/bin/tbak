@@ -27,7 +27,7 @@ local -a _tar_opts=(
 	--use-compress-program='zstd --threads=0'
 	--create --file=$_dest/termux_${_ver}.bak.tar.zst
 	--directory=$_src
-	--exclude={.cache,'tmp/*','.local/state'}
+	--exclude={.cache,'usr/tmp/*','.local/state'}
 )
 
 local -a _targets=(
