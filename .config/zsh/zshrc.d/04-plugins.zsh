@@ -8,14 +8,12 @@ local -a _snapshot
 	_static=$XDG_STATE_HOME/zsh/zplugins.zsh
 	_snapshot=(${(f)"$(antidote snapshot)":#No snapshots*})
 
-if [[ ! $_static -nt $_plugins || ! $_static -nt "${_snapshot[1]:-$_plugins}" ]]; then
+[[ $_static -nt $_plugins && $_static -nt "${_snapshot[1]:-$_plugins}" ]] ||
   antidote bundle <$_plugins >!$_static
-fi
 source $_static
 
-if [[ ! $XDG_STATE_HOME/zsh/zcolors.zsh -nt "$(which zcolors)" ]]; then
+[[ $XDG_STATE_HOME/zsh/zcolors.zsh -nt "$(which zcolors)" ]] ||
 	zcolors >!$XDG_STATE_HOME/zsh/zcolors.zsh
-fi
 source $XDG_STATE_HOME/zsh/zcolors.zsh
 
 # Configure plugins
