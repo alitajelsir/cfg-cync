@@ -34,6 +34,9 @@ local -a _options=(
 # Set options
 setopt "${_options[@]}"
 
+# Accept exact directory matches
+zstyle ':completion:*' accept-exact-dirs true
+
 # Sort grid completion by rows
 zstyle ':completion:*' list-rows-first true
 
@@ -54,7 +57,7 @@ unalias run-help
 autoload -Uz run-help
 
 # Create named directories
-hash -d zsh=$ZDOTDIR git=$GITDIR
+hash -d zsh=$ZDOTDIR git=$GITDIR bak=/sdcard/Android/bak
 
 # Set functions path
 fpath=($PREFIX/share/zsh/site-functions $fpath)
