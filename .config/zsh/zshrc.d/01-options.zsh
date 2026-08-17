@@ -47,7 +47,7 @@ zstyle ':completion:*:expand:*' keep-prefix true
 zstyle ':completion:*:rsync:*' tag-order files
 
 # Configure history file
-HISTFILE=$ZDOTDIR/.zhistory
+HISTFILE="$ZDOTDIR/.zhistory"
 SAVEHIST=$(( 10 * 1000 ))
 HISTSIZE=$(( 1.2 * SAVEHIST ))
 HISTORY_IGNORE='(-|.|/|~|cd |run-help)*'
@@ -57,10 +57,10 @@ unalias run-help
 autoload -Uz run-help
 
 # Create named directories
-hash -d bak=/sdcard/Android/bak git=$GITDIR zsh=$ZDOTDIR
+hash -d bak=/sdcard/Android/bak git="$GITDIR" zsh="$ZDOTDIR"
 
 # Set functions path
-fpath=($PREFIX/share/zsh/site-functions $fpath)
+fpath=("$PREFIX/share/zsh/site-functions" $fpath)
 
 # Use emacs mode
 bindkey -e

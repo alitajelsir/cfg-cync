@@ -57,6 +57,6 @@ pup() {
 	if (( "${#_outdated[@]}" )); then
 		pip install --user --upgrade "${_outdated[@]}"
 	else
-		printf 'pip: All packages are up to date\n'
+		printf 'All packages are up to date\n'
 	fi
 }
