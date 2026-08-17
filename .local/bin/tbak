@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # Check UID
 if [[ $UID == 0 ]]; then
-	echo 'Can not create backup as root'
+	printf "Can not create backup as root\n"
 	return
 fi
 
@@ -11,29 +11,29 @@ local _dest _src _ver
 	_src=/data/data/com.termux/files
 	_ver=$(date +%Y%m%d)
 
-[[ -d $_dest ]] ||
-	mkdir -p $_dest
+[[ -d "$_dest" ]] ||
+	mkdir -p "$_dest"
 
 # Fix ownership
-fd . -u --owner=root $HOME $PREFIX -X \
+fd . -u --owner=root "$HOME" "$PREFIX" -X \
 		sudo chown -R $USERNAME:$USERNAME
 
 # Start backup
-echo "Creating backup in $_dest..."
+printf "Creating backup in $_dest...\n"
 
 setopt local_options extended_glob glob_dots
 
 local -a _tar_opts=(
 	--use-compress-program='zstd --threads=0'
-	--create --file=$_dest/termux_${_ver}.bak.tar.zst
-	--directory=$_src
+	--create --file="$_dest/termux_$_ver.bak.tar.zst"
+	--directory="$_src"
 	--exclude={.cache,'usr/tmp/*','.local/state'}
 )
 
 local -a _targets=(
-	$_src/home/^.suroot
-	$_src/home/.suroot/.config/zsh/.zshrc(N)
-	$_src/usr
+	"$_src/home"/^.suroot
+	"$_src/home"/.suroot/.config/zsh/.zshrc(N)
+	"$_src/usr"
 )
 
 tar "${_tar_opts[@]}" "${(@)_targets#$_src/}"
