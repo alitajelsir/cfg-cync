@@ -34,6 +34,15 @@ local -a _options=(
 # Set options
 setopt "${_options[@]}"
 
+# Configure history file
+HISTFILE="$ZDOTDIR/.zhistory"
+SAVEHIST=$(( 10 * 1000 ))
+HISTSIZE=$(( 1.2 * SAVEHIST ))
+HISTORY_IGNORE="(-|.|/|~|cd |run-help)*"
+
+# Accept exact directory matches
+zstyle ':completion:*' accept-exact-dirs true
+
 # Sort grid completion by rows
 zstyle ':completion:*' list-rows-first true
 
@@ -43,15 +52,19 @@ zstyle ':completion:*:expand:*' keep-prefix true
 # Prioritize local files in rsync completion
 zstyle ':completion:*:rsync:*' tag-order files
 
-# Configure history file
-HISTFILE=$ZDOTDIR/.zhistory
-SAVEHIST=$(( 10 * 1000 ))
-HISTSIZE=$(( 1.2 * SAVEHIST ))
-HISTORY_IGNORE='(-|.|/|~|cd |run-help)*'
-
 # Access on-line help
 unalias run-help
 autoload -Uz run-help
+
+# Create named directories
+local -a _named_dirs=(
+	bak="$HOME/.local/bak"
+	git="$GITDIR"
+	utmp="$HOME/.local/tmp"
+	zsh=$"ZDOTDIR"
+)
+
+hash -d "${_named_dirs[@]}"
 
 # Use emacs mode
 bindkey -e

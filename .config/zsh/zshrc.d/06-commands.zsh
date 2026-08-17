@@ -21,7 +21,7 @@ local -a _commands=(
 # Set aliases
 alias -- "${_commands[@]}"
 
-[[ $UID == 0 ]] ||
+[[ "$UID" == 0 ]] ||
 	alias cfg="git --git-dir=$GITDIR/cfg-sync --work-tree=$HOME"
 
 # Set global aliases
@@ -29,7 +29,7 @@ alias -g "\$= "
 
 
 # Set functions
-if [[ $UID != 0 ]]; then
+if [[ "$UID" != 0 ]]; then
 	cfgcln() {
 		local -a _cfgargs=(--git-dir="$GITDIR/cfg-sync" --work-tree="$HOME")
 
