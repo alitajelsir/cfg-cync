@@ -8,6 +8,6 @@
 
 # Set cursor shape to bar
 (){
-	_cursor_bar() { printf '\e[6 q' }
+	_cursor_bar() { printf "\e[6 q" }
 	precmd_functions+=(_cursor_bar)
 }
