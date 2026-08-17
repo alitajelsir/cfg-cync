@@ -57,7 +57,7 @@ unalias run-help
 autoload -Uz run-help
 
 # Create named directories
-hash -d zsh=$ZDOTDIR git=$GITDIR bak=/sdcard/Android/bak
+hash -d bak=/sdcard/Android/bak git=$GITDIR zsh=$ZDOTDIR
 
 # Set functions path
 fpath=($PREFIX/share/zsh/site-functions $fpath)
