@@ -61,7 +61,7 @@ local -a _named_dirs=(
 	bak="$HOME/.local/bak"
 	git="$GITDIR"
 	utmp="$HOME/.local/tmp"
-	zsh=$"ZDOTDIR"
+	zsh="$ZDOTDIR"
 )
 
 hash -d "${_named_dirs[@]}"
