@@ -12,7 +12,7 @@ local -a _snapshot
   antidote bundle <"$_plugins" >|"$_static"
 source "$_static"
 
-[[ "$XDG_STATE_HOME/zsh/zcolors.zsh" -nt "$(which zcolors)" ]] ||
+[[ "$XDG_STATE_HOME/zsh/zcolors.zsh" -nt "${commands[zcolors]}" ]] ||
 	zcolors >|"$XDG_STATE_HOME/zsh/zcolors.zsh"
 source "$XDG_STATE_HOME/zsh/zcolors.zsh"
 
