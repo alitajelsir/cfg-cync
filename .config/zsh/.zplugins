@@ -3,5 +3,6 @@ zdharma-continuum/fast-syntax-highlighting
 marlonrichert/zcolors kind:path
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions kind:fpath path:src
+marlonrichert/zasync kind:fpath
 marlonrichert/zsh-autocomplete
 marlonrichert/zsh-edit
