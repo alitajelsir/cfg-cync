@@ -60,7 +60,7 @@ autoload -Uz run-help
 hash -d bak=/sdcard/Android/bak git="$GITDIR" zsh="$ZDOTDIR"
 
 # Set functions path
-fpath=("$PREFIX/share/zsh/site-functions" $fpath)
+fpath=($fpath "$PREFIX/share/zsh/site-functions" "$XDG_DATA_HOME/zsh/site-functions")
 
 # Use emacs mode
 bindkey -e
