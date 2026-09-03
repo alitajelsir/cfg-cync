@@ -11,11 +11,10 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 
-# Fix ownership
-[[ $UID == 0 ]] ||
-	(fd . -u --owner=root $HOME $PREFIX -X \
-	sudo chown -R $USERNAME:$USERNAME &)
-
-#
 # Set apt configuration file
 export APT_CONFIG=$XDG_CONFIG_HOME/apt/apt.conf
+
+# Fix ownership
+[[ $UID == 0 ]] || 
+	(find "$HOME" "$PREFIX" -user root \
+		-exec sudo chown "$USERNAME:$USERNAME" {} + &>/dev/null &)
