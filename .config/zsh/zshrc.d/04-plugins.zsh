@@ -18,7 +18,7 @@ source "$XDG_STATE_HOME/zsh/zcolors.zsh"
 
 # Configure plugins
 # Set syntax highlighting theme
-fast-theme -s | grep -Foqm1 elegance ||
+fast-theme -s | grep -qm1 elegance ||
 	fast-theme -q XDG:elegance
 
 # Set recent directories file
