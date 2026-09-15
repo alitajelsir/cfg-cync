@@ -1,36 +1,36 @@
 # Configure aliases
 # List aliases
 local -a _commands=(
-	"\$"="" "%"="" "❯"=""
-	'-'="cd -"
+	'$'= '%'= '❯'=
+	'-'='cd -'
 	bh="col -bx | bat -pl help --theme='Monokai Extended'"
 	cget=termux-clipboard-get
-	cpi="cp -iv"
+	cpi='cp -iv'
 	cset=termux-clipboard-set
-	lsa="eza -abF -x --group-directories-first --icons=auto"
-	fh="fd -uL --exclude=.suroot"
-	ffm="ffmpeg -hide_banner"
-	ffp="ffprobe -hide_banner"
+	lsa='eza -abF -x --group-directories-first --icons=auto'
+	fh='fd -uL --exclude=.suroot'
+	ffm='ffmpeg -hide_banner'
+	ffp='ffprobe -hide_banner'
 	mdl=yt-dlp
-	mdla="yt-dlp -x -f ba/b"
+	mdla='yt-dlp -x -f ba/b'
 	mdls="yt-dlp --no-embed-metadata --no-embed-subs --no-embed-thumbnail \
--S vcodec:h264,acodec:aac,res:720 --merge-output-format mp4 -f 'bv+ba/best'"	
-	mvi="mv -iv"
+-S vcodec:h264,acodec:aac,res:720 --merge-output-format mp4 -f 'bv+ba/best'"
+	mvi='mv -iv'
 	open=termux-open
-	rmi="rm -Iv"
-	rsl="rsync -PW"
-	sudo="sudo "
-	sul="sudo -P --no-create-hist --no-create-rc --shell=zsh su"
+	rmi='rm -Iv'
+	rsl='rsync -PW'
+	sudo='sudo '
+	sul='sudo -P --no-create-hist --no-create-rc --shell=zsh su'
 )
 
 # Set aliases
 alias -- "${_commands[@]}"
 
 [[ "$UID" == 0 ]] ||
-	alias cfg="git --git-dir=$XDG_DATA_HOME/git/cfg-sync --work-tree=$HOME"
+	alias cfg='git --git-dir=$XDG_DATA_HOME/git/cfg-sync --work-tree=$HOME'
 
 # Set global aliases
-alias -g "\$= "
+alias -g '$= '
 
 
 # Set functions
@@ -57,6 +57,6 @@ pup() {
 	if (( "${#_outdated[@]}" )); then
 		pip install --user --upgrade "${_outdated[@]}"
 	else
-		printf 'All packages are up to date\n'
+		printf '%s\n' 'All packages are up to date.'
 	fi
 }
