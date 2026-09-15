@@ -60,6 +60,7 @@ autoload -Uz run-help
 local -a _named_dirs=(
 	bak=/sdcard/Android/bak
 	git="$XDG_DATA_HOME/git"
+	utmp="$HOME/.local/tmp"
 	zsh="$ZDOTDIR"
 )
 
