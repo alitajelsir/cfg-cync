@@ -13,8 +13,8 @@ local -a _commands=(
 	ffp='ffprobe -hide_banner'
 	mdl=yt-dlp
 	mdla='yt-dlp -x -f ba/b'
-	mdls="yt-dlp --no-embed-metadata --no-embed-subs --no-embed-thumbnail \
--S vcodec:h264,acodec:aac,res:720 --merge-output-format mp4 -f 'bv+ba/best'"
+	mdls='yt-dlp --no-embed-metadata --no-embed-subs --no-embed-thumbnail \
+-S vcodec:h264,acodec:aac,res:720 --merge-output-format mp4 -f bv+ba/best'
 	mvi='mv -iv'
 	open=termux-open
 	rmi='rm -Iv'
