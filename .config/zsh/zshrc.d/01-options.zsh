@@ -59,7 +59,7 @@ autoload -Uz run-help
 # Create named directories
 local -a _named_dirs=(
 	bak="$HOME/.local/bak"
-	git="$XDG_DATA_HOME/git"
+	git="$HOME/Projects/Git"
 	utmp="$HOME/.local/tmp"
 	zsh="$ZDOTDIR"
 )
