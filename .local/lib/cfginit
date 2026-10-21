@@ -1,10 +1,10 @@
 echo 'Syncing $HOME configurations...'
 
 git clone --depth 1 --quiet --bare --single-branch --branch main \
-https://github.com/alitajelsir/cfg-sync.git $HOME/.config/cfg-sync
+https://github.com/alitajelsir/cfg-sync.git "$HOME/.local/share/cfg-sync"
 
 cfg () {
-	/usr/bin/git --git-dir=$HOME/.config/cfg-sync --work-tree=$HOME $@
+	/usr/bin/git --git-dir="$HOME/.local/share/cfg-sync" --work-tree=$HOME $@
 }
 cfg checkout 2>/dev/null
 
@@ -15,7 +15,7 @@ if [ $? = 0 ]; then
 
 		cfg checkout 2>&1 |
 		grep -E "\s+\." | awk {'print $1'} | xargs -I'{}' \
-		rsync -aR --remove-source-files '{}' $HOME/.config/cfg-bak
+		rsync --mkpath -aR --remove-source-files '{}' $HOME/.local/bak/cfg-bak
 		cfg checkout
 
 		echo 'Syncing completed successfully'
